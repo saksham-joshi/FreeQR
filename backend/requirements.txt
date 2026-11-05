@@ -1,0 +1,4 @@
+# Runtime dependencies live in the root requirements.txt, which Vercel installs.
+-r ../requirements.txt
+# Local development server (`fastapi dev`).
+fastapi[standard]
