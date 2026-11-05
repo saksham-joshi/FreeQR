@@ -9,14 +9,7 @@ import { SizeSection } from './components/SizeSection'
 import { DotIcon, FrameIcon, PatternIcon } from './components/StyleIcons'
 import { requestQr } from './core/api'
 import { fileStem, normalizeLink } from './core/link'
-import {
-  defaultOptions,
-  DOT_STYLES,
-  FRAME_STYLES,
-  PATTERN_STYLES,
-  SAMPLE_LINK,
-  type QrOptions,
-} from './core/options'
+import { defaultOptions, DOT_STYLES, FRAME_STYLES, PATTERN_STYLES, SAMPLE_LINK, type QrOptions } from './core/options'
 import { useInView } from './hooks/useInView'
 import { useQrPreview } from './hooks/useQrPreview'
 
@@ -68,7 +61,10 @@ function App() {
   return (
     <div className="mx-auto max-w-[88rem] px-4 sm:px-8">
       <header className="flex items-center justify-between gap-6 py-5">
-        <a href="/" className="flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-plum">
+        <a
+          href="/"
+          className="flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-plum"
+        >
           <img src="/favicon-96x96.png" alt="" className="size-9" />
           <span className="text-xl font-bold tracking-tight text-plum">FreeQR</span>
         </a>

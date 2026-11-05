@@ -32,11 +32,24 @@ export function SizeSection({ options, onChange }: SizeSectionProps) {
           title={ratio ? 'Proportions locked' : 'Proportions unlocked'}
           className="mb-0.5 grid size-9 place-items-center rounded-lg text-muted transition-colors hover:bg-white hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plum aria-pressed:text-plum"
         >
-          <svg viewBox="0 0 20 20" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+          <svg
+            viewBox="0 0 20 20"
+            className="size-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            aria-hidden="true"
+          >
             {ratio ? (
-              <path d="M8 6.5 9.5 5a3.2 3.2 0 0 1 4.5 4.5L12.5 11M12 13.5 10.5 15A3.2 3.2 0 0 1 6 10.5L7.5 9M8 12l4-4" strokeLinecap="round" />
+              <path
+                d="M8 6.5 9.5 5a3.2 3.2 0 0 1 4.5 4.5L12.5 11M12 13.5 10.5 15A3.2 3.2 0 0 1 6 10.5L7.5 9M8 12l4-4"
+                strokeLinecap="round"
+              />
             ) : (
-              <path d="M8 6.5 9.5 5a3.2 3.2 0 0 1 4.5 4.5L12.5 11M12 13.5 10.5 15A3.2 3.2 0 0 1 6 10.5L7.5 9" strokeLinecap="round" />
+              <path
+                d="M8 6.5 9.5 5a3.2 3.2 0 0 1 4.5 4.5L12.5 11M12 13.5 10.5 15A3.2 3.2 0 0 1 6 10.5L7.5 9"
+                strokeLinecap="round"
+              />
             )}
           </svg>
           <span className="sr-only">Keep width and height in proportion</span>
@@ -74,9 +87,7 @@ export function SizeSection({ options, onChange }: SizeSectionProps) {
         <NumberField label="Margin X" value={margin_x} min={0} max={2048} onChange={(v) => onChange({ margin_x: v })} />
         <NumberField label="Margin Y" value={margin_y} min={0} max={2048} onChange={(v) => onChange({ margin_y: v })} />
       </div>
-      {room < 96 && (
-        <Warning>The margins leave little room for the code. Lower them or make the image bigger.</Warning>
-      )}
+      {room < 96 && <Warning>The margins leave little room for the code. Lower them or make the image bigger.</Warning>}
     </>
   )
 }

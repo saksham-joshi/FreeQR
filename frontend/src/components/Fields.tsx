@@ -5,7 +5,15 @@ import type { Choice } from '../core/options'
 export const focusRing = 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-plum'
 const peerFocusRing = 'peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-plum'
 
-export function Section({ title, description, children }: { title: string; description?: string; children: ReactNode }) {
+export function Section({
+  title,
+  description,
+  children,
+}: {
+  title: string
+  description?: string
+  children: ReactNode
+}) {
   return (
     <section className="border-t border-thistle py-8 first:border-t-0 first:pt-0">
       <h2 className="text-xl font-semibold tracking-tight text-ink">{title}</h2>

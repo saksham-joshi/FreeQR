@@ -67,7 +67,11 @@ export function PictureField({ image, onChange }: PictureFieldProps) {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <img src={image.data_url} alt="Your center picture" className="checker size-16 rounded-lg object-contain p-1 ring-1 ring-thistle" />
+        <img
+          src={image.data_url}
+          alt="Your center picture"
+          className="checker size-16 rounded-lg object-contain p-1 ring-1 ring-thistle"
+        />
         <div className="flex flex-wrap gap-2">
           {fileInput}
           <button type="button" className={button} onClick={() => input.current?.click()}>

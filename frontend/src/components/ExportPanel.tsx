@@ -69,12 +69,7 @@ export function ExportPanel({ options, onFormatChange, download, canDownload, on
       <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
         <Segmented label="File format" hideLabel choices={FORMATS} value={options.format} onChange={onFormatChange} />
         <div className="ml-auto">
-          <DownloadButton
-            format={options.format}
-            download={download}
-            disabled={!canDownload}
-            onDownload={onDownload}
-          />
+          <DownloadButton format={options.format} download={download} disabled={!canDownload} onDownload={onDownload} />
         </div>
       </div>
       <p
@@ -97,7 +92,14 @@ interface MobileDownloadBarProps {
 }
 
 /** Keeps the download in reach on small screens once the panel under the preview scrolls away. */
-export function MobileDownloadBar({ visible, previewUrl, options, download, canDownload, onDownload }: MobileDownloadBarProps) {
+export function MobileDownloadBar({
+  visible,
+  previewUrl,
+  options,
+  download,
+  canDownload,
+  onDownload,
+}: MobileDownloadBarProps) {
   return (
     <div
       inert={!visible}

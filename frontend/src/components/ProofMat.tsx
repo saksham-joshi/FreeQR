@@ -112,4 +112,3 @@ function Dimension({ axis, label }: { axis: 'x' | 'y'; label: string }) {
     </div>
   )
 }
-
