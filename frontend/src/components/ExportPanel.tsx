@@ -1,6 +1,7 @@
 import type { Ref } from 'react'
 import { FORMATS, type Format, type QrOptions } from '../core/options'
 import { focusRing, Segmented } from './Fields'
+import { Spinner } from './Spinner'
 
 export type DownloadState =
   | { status: 'idle' }
@@ -24,18 +25,24 @@ export function DownloadButton({ format, download, disabled, onDownload, compact
       type="button"
       onClick={onDownload}
       disabled={disabled || working}
-      className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gold font-semibold text-ink transition-colors hover:bg-gold-deep disabled:cursor-not-allowed disabled:bg-thistle/70 disabled:text-muted ${focusRing} ${compact ? 'h-11 px-4 text-sm' : 'h-12 px-6 text-base'}`}
+      aria-busy={working}
+      // While working it stays gold, so it reads as busy rather than unavailable.
+      className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-gold font-semibold text-ink transition-colors ${working ? 'cursor-progress' : 'hover:bg-gold-deep disabled:cursor-not-allowed disabled:bg-thistle/70 disabled:text-muted'} ${focusRing} ${compact ? 'h-11 px-4 text-sm' : 'h-12 px-6 text-base'}`}
     >
-      <svg viewBox="0 0 20 20" className="size-5" aria-hidden="true">
-        <path
-          d="M10 3v9.5M5.5 8.5 10 13l4.5-4.5M4 16.5h12"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
+      {working ? (
+        <Spinner />
+      ) : (
+        <svg viewBox="0 0 20 20" className="size-5" aria-hidden="true">
+          <path
+            d="M10 3v9.5M5.5 8.5 10 13l4.5-4.5M4 16.5h12"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      )}
       {working ? `Preparing ${name}…` : `Download ${name}`}
     </button>
   )

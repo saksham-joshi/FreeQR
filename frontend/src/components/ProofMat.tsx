@@ -1,6 +1,7 @@
 import type { QrOptions } from '../core/options'
 import type { Preview } from '../hooks/useQrPreview'
 import { Toggle } from './Fields'
+import { Spinner } from './Spinner'
 
 interface ProofMatProps {
   preview: Preview
@@ -39,6 +40,18 @@ export function ProofMat({ preview, options, isSample, showGuides, onShowGuidesC
                 />
               )}
             </div>
+            {preview.loading && (
+              <div
+                aria-hidden="true"
+                className="rendering pointer-events-none absolute inset-0 grid place-items-center overflow-hidden bg-white/55"
+              >
+                <span className="scan absolute inset-x-0 top-0 h-1/4 bg-linear-to-b from-transparent via-lagoon/35 to-transparent" />
+                <span className="relative inline-flex items-center gap-2 rounded-full bg-ink px-3.5 py-2 text-sm font-medium text-blush shadow-lg">
+                  <Spinner className="size-4 text-gold" />
+                  Generating…
+                </span>
+              </div>
+            )}
             {showGuides && (
               <div
                 aria-hidden="true"
@@ -51,7 +64,7 @@ export function ProofMat({ preview, options, isSample, showGuides, onShowGuidesC
                 }}
               />
             )}
-            {preview.error && (
+            {preview.error && !preview.loading && (
               <div className="absolute inset-0 grid place-items-center p-4">
                 <p role="alert" className="max-w-xs rounded-lg bg-white p-4 text-sm text-ink shadow-lg">
                   <span className="block font-semibold">Preview not updated</span>

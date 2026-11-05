@@ -72,6 +72,28 @@
   .measure-y {
     animation: measure-y 700ms cubic-bezier(0.2, 0.7, 0.2, 1) 250ms both;
   }
+
+  /* The veil over the proof while a new one renders. It fades in late, so quick updates never flash it. */
+  .rendering {
+    animation: reveal 200ms ease-out 400ms both;
+  }
+
+  /* A scanner's light passing over the code. */
+  .scan {
+    animation: scan 1.4s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes scan {
+  to {
+    transform: translateY(300%);
+  }
 }
 
 @keyframes measure-x {
@@ -90,5 +112,9 @@
   .measure-x,
   .measure-y {
     animation: none;
+  }
+
+  .scan {
+    display: none;
   }
 }
