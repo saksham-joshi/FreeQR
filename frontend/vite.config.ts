@@ -6,7 +6,8 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    // In development the FastAPI backend runs separately (`fastapi dev` in backend/).
+    // With `pnpm dev` the FastAPI backend runs separately (`fastapi dev` in backend/).
+    // `vercel dev` routes /api to the backend service itself, so this proxy isn't used there.
     proxy: { '/api': 'http://127.0.0.1:8000' },
   },
 })
