@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ColorsSection } from './components/ColorsSection'
 import { ExportPanel, MobileDownloadBar, type DownloadState } from './components/ExportPanel'
 import { ChoiceGrid, Section } from './components/Fields'
+import { HeaderLinks } from './components/HeaderLinks'
 import { LinkField } from './components/LinkField'
 import { PictureField } from './components/PictureField'
 import { ProofMat } from './components/ProofMat'
@@ -63,15 +64,18 @@ function App() {
     <>
       <Analytics />
       <div className="mx-auto max-w-[88rem] px-4 sm:px-8">
-        <header className="flex items-center justify-between gap-6 py-5">
-          <a
-            href="/"
-            className="flex items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-plum"
-          >
-            <img src="/favicon-96x96.png" alt="" className="size-9" />
-            <span className="text-xl font-bold tracking-tight text-plum">FreeQR</span>
-          </a>
-          <p className="hidden text-sm text-muted sm:block">Free QR codes for any link. No sign-up, no watermark.</p>
+        <header className="flex items-center justify-between gap-4 py-5 sm:gap-6">
+          <div className="flex items-center gap-6">
+            <a
+              href="/"
+              className="flex shrink-0 items-center gap-2.5 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-plum"
+            >
+              <img src="/favicon-96x96.png" alt="" className="size-9" />
+              <span className="text-xl font-bold tracking-tight text-plum">FreeQR</span>
+            </a>
+            <p className="hidden text-sm text-muted lg:block">Free QR codes for any link. No sign-up, no watermark.</p>
+          </div>
+          <HeaderLinks />
         </header>
 
         <main className="pt-2 pb-28 lg:pb-16">
